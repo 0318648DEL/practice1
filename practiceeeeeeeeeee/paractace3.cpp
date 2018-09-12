@@ -10,7 +10,7 @@
 GLvoid drawScene(GLvoid);
 GLvoid reshape(int w, int h);
 
-void main(int argc, char** argv)
+int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
