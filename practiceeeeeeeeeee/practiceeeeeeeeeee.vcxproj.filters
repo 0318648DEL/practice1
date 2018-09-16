@@ -35,5 +35,8 @@
     <ClCompile Include="p4.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="prac5.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

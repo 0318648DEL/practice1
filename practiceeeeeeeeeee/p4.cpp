@@ -42,7 +42,7 @@ GLvoid drawScene()
 
 	while (count < 10 && trigger[count] == 1)
 	{
-		glColor4ub(color[count][0], color[count][1], color[count][2], 0.5);
+		glColor4ub(color[count][0], color[count][1], color[count][2], 200);
 		glRecti(squr_loc[count][0] - size[count], squr_loc[count][1] - size[count], squr_loc[count][0] + size[count], squr_loc[count][1] + size[count]);
 		count++;
 	}
