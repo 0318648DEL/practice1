@@ -52,6 +52,7 @@ int speed_mul[10] = { 1, 1,1,1,1,1,1,1,1,1 };//속도 배수
 int rev = 0;//크기 줄어드는거 체크
 int num = 0;//사각형 카운트
 int trigger[10] = { 0, };//토리가
+int change = 0;
 
 
 
@@ -79,8 +80,20 @@ GLvoid drawScene()
 
 	while (count < 10 && trigger[count] == 1)//색깔 바꾸는 부분과 사각형 그리기 부분
 	{
-		glColor4ub(color[count][0], color[count][1], color[count][2], 200);//색깔 그리긴데 내가 봤던 거랑 좀 다르게 나온다. 안 예쁨
-		glRecti(squr_loc[count][0] - size_x[count], squr_loc[count][1] - size_y[count], squr_loc[count][0] + size_x[count], squr_loc[count][1] + size_y[count]);//사각형이다
+		if (change == 1)
+		{
+			glColor4ub(color[count][0], color[count][1], color[count][2], 200);//색깔 그리긴데 내가 봤던 거랑 좀 다르게 나온다. 안 예쁨
+			glBegin(GL_TRIANGLES);
+			glVertex2i(squr_loc[count][0] - size_x[count], squr_loc[count][1] + size_y[count]);
+			glVertex2i(squr_loc[count][0], squr_loc[count][1] - size_y[count]);
+			glVertex2i(squr_loc[count][0] + size_x[count], squr_loc[count][1] + size_y[count]);
+			glEnd();
+		}
+		else
+		{
+			glColor4ub(color[count][0], color[count][1], color[count][2], 200);//색깔 그리긴데 내가 봤던 거랑 좀 다르게 나온다. 안 예쁨
+			glRecti(squr_loc[count][0] - size_x[count], squr_loc[count][1] - size_y[count], squr_loc[count][0] + size_x[count], squr_loc[count][1] + size_y[count]);//사각형이다
+		}
 		count++;
 	}
 
@@ -116,6 +129,16 @@ void keyboard(unsigned char key, int x, int y)//키보드 입력받음
 				--speed_mul[check];
 			}
 			++check;
+		}
+		break;
+	case 't':
+		if (change == 0)
+		{
+			change = 1;
+		}
+		else
+		{
+			change = 0;
 		}
 		break;
 	}
@@ -256,7 +279,7 @@ void timer_func(int value)//타이머 호출
 			size_x[timer] -= 5;
 			size_y[timer] -= 5;
 			--size_ch[timer];
-			rev == 1;//다시 뒤로 간다
+			rev = 1;//다시 뒤로 간다
 			break;
 		}
 		++timer;

@@ -86,15 +86,15 @@ void mouse(int button, int state, int x, int y)
 			which_circ[num] = rand() % 2;
 			if (which_circ[num] == 1)
 			{
-				color[num][0] = 0;
-				color[num][1] = 0;
-				color[num][2] = 255;
+				color[num][0] = rand() % 255;
+				color[num][1] = rand() % 255;
+				color[num][2] = rand() % 255;
 			}
 			else
 			{
-				color[num][0] = 255;
-				color[num][1] = 0;
-				color[num][2] = 0;
+				color[num][0] = rand() % 255;
+				color[num][1] = rand() % 255;
+				color[num][2] = rand() % 255;
 			}
 		}
 		else
@@ -105,15 +105,15 @@ void mouse(int button, int state, int x, int y)
 			which_circ[num] = rand() % 2;
 			if (which_circ[num] == 1)
 			{
-				color[num][0] = 0;
-				color[num][1] = 0;
-				color[num][2] = 255;
+				color[num][0] = rand()%255;
+				color[num][1] = rand()%255;
+				color[num][2] = rand()%255;
 			}
 			else
 			{
-				color[num][0] = 255;
-				color[num][1] = 0;
-				color[num][2] = 0;
+				color[num][0] = rand() % 255;
+				color[num][1] = rand() % 255;
+				color[num][2] = rand() % 255;
 			}
 		}
 		++num;
@@ -129,6 +129,9 @@ void timer_func(int value)
 			if (which_circ[check] == 1 && ((yeah_circle[check][0] + radius[check] <= 800 || yeah_circle[check][0] - radius[check] >= 0) || (yeah_circle[check][1] + radius[check] <= 600 || yeah_circle[check][1] + radius[check] >= 0)))
 			{
 				radius[check] += 10;
+				color[check][0] = rand() % 255;
+				color[check][1] = rand() % 255;
+				color[check][2] = rand() % 255;
 			}
 			else if (which_circ[check] == 0)
 			{

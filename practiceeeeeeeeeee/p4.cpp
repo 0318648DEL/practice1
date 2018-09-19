@@ -146,7 +146,7 @@ void timer_func(int value)
 		case 5:
 			size[timer] -= 20;
 			--size_ch[timer];
-			rev == 1;
+			rev = 1;
 			break;
 		}
 		++timer;
